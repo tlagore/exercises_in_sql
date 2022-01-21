@@ -1,4 +1,3 @@
-from pickle import TRUE
 import psycopg2
 import sys
 import os
