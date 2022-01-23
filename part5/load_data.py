@@ -1,4 +1,5 @@
 from enum import unique
+from operator import ge
 from re import I
 import psycopg2
 from psycopg2.extras import execute_batch
@@ -7,6 +8,10 @@ import csv
 import sys
 import os
 import traceback
+
+import getpass
+
+from sshtunnel import SSHTunnelForwarder
 
 REMOTE = False
 
@@ -20,11 +25,12 @@ class DBConnection(object):
     def __enter__(self):
         try:
             self.conn = psycopg2.connect("dbname='{0}' user='{1}' host='{2}' password='{3}'".format(
-                db_details['database'],
-                db_details['user'],
-                db_details['host'],
-                db_details['password']
+                self.db_details['database'],
+                self.db_details['user'],
+                self.db_details['host'],
+                self.db_details['password']
             ))
+
         except Exception as e:
             print(f"Unable to connect to the database: {e}")
             raise e
@@ -49,10 +55,11 @@ db_details = {
     'password': os.environ.get("PSQL_DB_PASS")
 }
 
+if REMOTE:
+    password = getpass.getpass("Enter password for remote DB: ")
+    db_details['password'] = password
 
-# Normally we'd use pyscopg2 for value replacement 
-# to avoid injection, but we know the data so
-# doing it this way allows us to do batch insertion
+
 state_query = """
     INSERT INTO stateinfo (state_name, state_po, state_fips, state_cen, state_ic) 
         VALUES (%s, %s, %s, %s, %s)
