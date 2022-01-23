@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: electioninfo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: electioninfo; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.electioninfo (
@@ -41,10 +41,8 @@ CREATE TABLE public.electioninfo (
 );
 
 
-ALTER TABLE public.electioninfo OWNER TO postgres;
-
 --
--- Name: electioninfo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: electioninfo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.electioninfo_id_seq
@@ -56,17 +54,15 @@ CREATE SEQUENCE public.electioninfo_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.electioninfo_id_seq OWNER TO postgres;
-
 --
--- Name: electioninfo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: electioninfo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.electioninfo_id_seq OWNED BY public.electioninfo.id;
 
 
 --
--- Name: party; Type: TABLE; Schema: public; Owner: postgres
+-- Name: party; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.party (
@@ -76,10 +72,8 @@ CREATE TABLE public.party (
 );
 
 
-ALTER TABLE public.party OWNER TO postgres;
-
 --
--- Name: party_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: party_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.party_id_seq
@@ -91,17 +85,15 @@ CREATE SEQUENCE public.party_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.party_id_seq OWNER TO postgres;
-
 --
--- Name: party_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: party_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.party_id_seq OWNED BY public.party.id;
 
 
 --
--- Name: stateinfo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: stateinfo; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.stateinfo (
@@ -114,10 +106,8 @@ CREATE TABLE public.stateinfo (
 );
 
 
-ALTER TABLE public.stateinfo OWNER TO postgres;
-
 --
--- Name: stateinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: stateinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.stateinfo_id_seq
@@ -129,38 +119,36 @@ CREATE SEQUENCE public.stateinfo_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stateinfo_id_seq OWNER TO postgres;
-
 --
--- Name: stateinfo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: stateinfo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.stateinfo_id_seq OWNED BY public.stateinfo.id;
 
 
 --
--- Name: electioninfo id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: electioninfo id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.electioninfo ALTER COLUMN id SET DEFAULT nextval('public.electioninfo_id_seq'::regclass);
 
 
 --
--- Name: party id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: party id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.party ALTER COLUMN id SET DEFAULT nextval('public.party_id_seq'::regclass);
 
 
 --
--- Name: stateinfo id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: stateinfo id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.stateinfo ALTER COLUMN id SET DEFAULT nextval('public.stateinfo_id_seq'::regclass);
 
 
 --
--- Data for Name: electioninfo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: electioninfo; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.electioninfo (id, office, stage, year, special, candidatename, partyid, stateid, district, mode, candidatevotes, totalvotes, unofficial) FROM stdin;
@@ -3737,7 +3725,7 @@ COPY public.electioninfo (id, office, stage, year, special, candidatename, party
 
 
 --
--- Data for Name: party; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: party; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.party (id, party_name, party_simplified) FROM stdin;
@@ -3918,7 +3906,7 @@ COPY public.party (id, party_name, party_simplified) FROM stdin;
 
 
 --
--- Data for Name: stateinfo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: stateinfo; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.stateinfo (id, state_name, state_po, state_fips, state_cen, state_ic) FROM stdin;
@@ -3976,28 +3964,28 @@ COPY public.stateinfo (id, state_name, state_po, state_fips, state_cen, state_ic
 
 
 --
--- Name: electioninfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: electioninfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.electioninfo_id_seq', 3629, true);
 
 
 --
--- Name: party_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: party_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.party_id_seq', 173, true);
 
 
 --
--- Name: stateinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: stateinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.stateinfo_id_seq', 50, true);
 
 
 --
--- Name: electioninfo electioninfo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: electioninfo electioninfo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.electioninfo
@@ -4005,7 +3993,7 @@ ALTER TABLE ONLY public.electioninfo
 
 
 --
--- Name: party party_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: party party_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.party
@@ -4013,7 +4001,7 @@ ALTER TABLE ONLY public.party
 
 
 --
--- Name: stateinfo stateinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: stateinfo stateinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.stateinfo
@@ -4021,7 +4009,7 @@ ALTER TABLE ONLY public.stateinfo
 
 
 --
--- Name: electioninfo party_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: electioninfo party_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.electioninfo
@@ -4029,7 +4017,7 @@ ALTER TABLE ONLY public.electioninfo
 
 
 --
--- Name: electioninfo state_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: electioninfo state_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.electioninfo
