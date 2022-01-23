@@ -1,17 +1,10 @@
-from enum import unique
-from operator import ge
-from re import I
 import psycopg2
-from psycopg2.extras import execute_batch
-import re
 import csv
 import sys
 import os
 import traceback
 
 import getpass
-
-from sshtunnel import SSHTunnelForwarder
 
 REMOTE = False
 
