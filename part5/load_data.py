@@ -27,9 +27,9 @@ class DBConnection(object):
     
         return self.conn
 
-    def __exit__(self, exception_type, exception_value, traceback):
+    def __exit__(self, exception_type, exception_value, trace):
         if exception_type is not None:
-            traceback.print_exception(exception_type, exception_value, traceback)
+            traceback.print_exc(exception_type, exception_value, traceback)
         
         if self.conn is not None:
             print("disposing")
@@ -45,6 +45,14 @@ db_details = {
     'password': os.environ.get("PSQL_DB_PASS")
 }
 
+data_loc = "data/human_life_expectancy.csv"
+count = 0
 with DBConnection(db_details) as conn:
     with conn.cursor() as curs:
-        print("got here!")
+        with open(data_loc, "r") as cur_file:
+            csv_reader = csv.reader(cur_file)
+            for row in csv_reader:
+                count+=1
+                print(row)
+
+print(count)
