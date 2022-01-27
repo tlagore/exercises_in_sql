@@ -1,0 +1,1 @@
+pg_restore -h studentdb.csc.uvic.ca -U user022 --no-owner --role=user022 -d db_022 db_022.dump
