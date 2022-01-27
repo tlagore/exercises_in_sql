@@ -1,29 +1,5 @@
 -- your answer to the JSON query goes here
 
--- WORKING! -- collects the people who have won more than award
-/*
-WITH 
-	winners AS 
-		(SELECT 
-		 	tuple->>'category' AS category, 
-		 	tuple->>'year' AS year,
-		 	json_array_elements(tuple->'laureates') AS persons
-		FROM prizes
-		WHERE tuple->>'laureates' IS NOT NULL),
-	relational AS 
-		(SELECT 
-		 	category, year, 
-		 	persons->>'firstname' AS firstname, 
-		 	CASE 
-		 		WHEN persons::jsonb ? 'surname' THEN persons->>'surname'
-		 		ELSE NULL
-		 	END AS surname 
-		FROM winners AS w)
-	SELECT firstname, surname, COUNT(*)
-	FROM relational
-	GROUP BY firstname, surname
-	HAVING COUNT(*) > 1;
-*/
 -- Working, turned back into a json and ordered by year
 WITH 
 	winners AS 

@@ -1,9 +1,0 @@
-# fill the following information
-
-Student Name: Tyrone Lagore
-
-Student Id: V00995698
-
-Database: imdb
-
-# add any further notes below this line

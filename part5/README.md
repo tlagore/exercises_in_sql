@@ -2,7 +2,6 @@
 
 Run `create_tables.sql` to create tables.
 
-
 ## Populate tables
 
 ### Locally: 
@@ -18,3 +17,6 @@ Once on the school server, the data was imported by
  - connecting to the psql server (`psql -U user022 -h studentdb.csc.uvic.ca db_022`) 
  - schema created using `\i create_tables.sql`
  - data was imported by running `\i db_022.sql`
+
+### Note:
+A copy of the dump has been kept within this folder, so it is unecessary to do the `scp` command.
