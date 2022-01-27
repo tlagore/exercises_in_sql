@@ -30,6 +30,7 @@ WITH
 		FROM relational AS r
 		JOIN multi_winners AS mw
 		ON (mw.firstname = r.firstname and (mw.surname IS NULL OR mw.surname = r.surname))
+	 	WHERE mw.surname IS NOT NULL
 		ORDER BY firstname, year)
 	SELECT 
 		(SELECT row_to_json(_) FROM (SELECT firstname, surname, json_agg(awards) AS awards) AS _) AS r 
