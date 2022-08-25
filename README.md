@@ -1,4 +1,17 @@
-# Schema
+# Exercises in SQL
+This project performs various SQL queries using PostgreSQL to get a better understanding of SQL queries
+
+`part1`-`part4` perform various SQL queries with specific requirements
+
+ - **part1** performs a query both with a join and without
+ - **part2** uses PSQL's `EXPLAIN ANALYZE` to understand SQL queries at a lower level
+ - **part3** performs a more complex query to perform a single-query analysis on a movie database
+ - **part4** does JSON manipulation using SQL queries
+
+# Politics data import & query
+The final part of this project involved finding a dataset in CSV format, writing appropriate code to import the data, and writing an interesting query on the final result. Below is information needed for this part of the project
+
+## Schema
 
 The schema of the raw data is
 
